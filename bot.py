@@ -17,7 +17,7 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 
 
 def sending_auto2(message):
-    if message.chat.id > 0:  # Заставляет бота отвечать только на личные сообщения
+    if message.chat.id > 0:
       bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',disable_web_page_preview=True)  # Отправляет авто сообщение
 
     # NOTE
