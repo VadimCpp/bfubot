@@ -15,6 +15,10 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
                    'migrate_to_chat_id', 'migrate_from_chat_id',
                    'pinned_message'])  # декоратор который заставляет пользователя реагировать на новые сообщения
 
+@bot.message_handler(commands=['Расписание'])
+
+def start_message(message):
+    bot.send_message(message.chat.id, 'Ты написал /Расписание')
 
 def sending_auto2(message):
     if message.chat.id > 0:
