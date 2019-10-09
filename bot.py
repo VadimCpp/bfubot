@@ -18,7 +18,12 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 @bot.message_handler(commands=['Raspisanie'])
 
 def Raspisanie_message(message):
-    bot.send_message(message.chat.id, 'Ты написал /Raspisanie')
+    bot.send_message(message.chat.id, 'Во вторник с 15-20 до 16-50 лекция по Питону, в 231 аудитории.')
+    bot.send_message(message.chat.id, 'В среду:')
+    bot.send_message(message.chat.id, 'у первой подгруппы практика по Питону с 13-40 до 15-10, в 230 аудитории;')
+    bot.send_message(message.chat.id, 'у второй подгруппы практика по Птиону с 10-10 до 11-40, в 235 аудитории;')
+    bot.send_message(message.chat.id, 'у третьей подгруппы практика по Питону с 12-00 до 13-30 в 235 аудитории.')
+
 
 def sending_auto2(message):
     if message.chat.id > 0:
