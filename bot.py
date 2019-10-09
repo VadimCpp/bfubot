@@ -17,7 +17,7 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 
 @bot.message_handler(commands=['Raspisanie'])
 
-def start_message(message):
+def Raspisanie_message(message):
     bot.send_message(message.chat.id, 'Ты написал /Raspisanie')
 
 def sending_auto2(message):
