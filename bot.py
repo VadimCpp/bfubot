@@ -21,7 +21,7 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 def sending_auto2(message):
     
     if message.text=="/mo2":
-      bot.send_message(message.chat.id, 'Группа МО-2 \n \n'+'**Вторник**\n\n'+'15:20 (ауд. 231) лекция Python\n'+'**Среда**\n\n'+'13-40 (ауд. 230) лаба Python (1я подгруппа)\n10-10 (ауд. 235) лаба Python (2я подгруппа)\n12-00 (ауд. 235) лаба Python (3я подгруппа)\n')
+      bot.send_message(message.chat.id, 'Группа МО-2 \n \n'+**'Вторник\n'**+'15:20 (ауд. 231) лекция Python\n\n'+**'Среда\n'**+'13-40 (ауд. 230) лаба Python (1я подгруппа)\n10-10 (ауд. 235) лаба Python (2я подгруппа)\n12-00 (ауд. 235) лаба Python (3я подгруппа)\n')
 
     elif message.chat.id > 0:
       bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',disable_web_page_preview=True)  # Отправляет авто сообщение
