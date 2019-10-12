@@ -7,14 +7,14 @@ logging.basicConfig(level=logging.DEBUG,
 
 bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект класса "TeleBot", то есть нашего бота
 
-file=open('Statistic.txt', 'r')
-file2=open('UserCounter.txt', 'r')
-file3=open('Statistic.txt', 'a')
-file4=open('UserCounter.txt', 'w')
+#file=open('Statistic.txt', 'r')
+#file2=open('UserCounter.txt', 'r')
+#file3=open('Statistic.txt', 'a')
+#file4=open('UserCounter.txt', 'w')
 
-text=file.read()
-text2=file2.read()
-text2=int(text2)+1
+#text=file.read()
+#text2=file2.read()
+#text2=int(text2)+1
 
 @bot.message_handler(
     content_types=['text', 'audio', 'document', 'photo', 'sticker', 'video', 'video_note', 'voice', 'location',
@@ -33,16 +33,16 @@ def sending_auto2(message):
     if message.text=="/mo2":
       bot.send_message(message.chat.id, 'Группа МО-2 \n \n'+'*Вторник*'+'\n'+'15:20 (ауд. 231) лекция Python\n\n'+'*Среда*'+'\n'+'13-40 (ауд. 230) лаба Python (1я подгруппа)\n10-10 (ауд. 235) лаба Python (2я подгруппа)\n12-00 (ауд. 235) лаба Python (3я подгруппа)\n', parse_mode="Markdown")
       
-      if message.chat.id not in text:
-        file3.write(message.chat.id+', ')
-        file4.write(text2)
+      #if message.chat.id not in text:
+        #file3.write(message.chat.id+', ')
+        #file4.write(text2)
 
     elif message.chat.id > 0:
       bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',disable_web_page_preview=True)  # Отправляет авто сообщение
       
-      if message.chat.id not in text:
-        file3.write(message.chat.id+', ')
-        file4.write(text2)
+      #if message.chat.id not in text:
+        #file3.write(message.chat.id+', ')
+        #file4.write(text2)
 
 
     # NOTE
