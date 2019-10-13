@@ -23,7 +23,7 @@ def sending_auto2(message):
 
     elif message.chat.id > 0:
       bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',disable_web_page_preview=True)  # Отправляет авто сообщение
-      bot.send_message(message.chat.id, message.date)
+
     # NOTE
     # Не отправляем сообщения в общие чаты.
     # else:
