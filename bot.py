@@ -20,8 +20,10 @@ def sending_auto2(message):
     
     if message.text=="/mo2":
       bot.send_message(message.chat.id, 'Группа МО-2 \n \n'+'*Вторник*'+'\n'+'15-20 (ауд. 231) лекция Python\n\n'+'*Среда*'+'\n'+'13-40 (ауд. 230) лаба Python (1я подгруппа)\n10-10 (ауд. 235) лаба Python (2я подгруппа)\n12-00 (ауд. 235) лаба Python (3я подгруппа)\n', parse_mode="Markdown")
+    
     elif message.text=="/pm4":
       bot.send_message(message.chat.id, 'Группа ПМ-4 \n \n'+'*Пятница*'+'\n'+'10-10 (ауд. 210) лаба Python (1я подгруппа)\n12-00 (ауд. 118) лекция Python\n13-40 (ауд. 214) лаба Python (2я подгруппа)\n', parse_mode="Markdown")
+    
     elif message.chat.id > 0:
       bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',disable_web_page_preview=True)  # Отправляет авто сообщение
 
