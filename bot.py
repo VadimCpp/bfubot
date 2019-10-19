@@ -3,7 +3,7 @@ import logging
 import json
 from config import *
 
-jsonString='{ "Group": "MO-2", "Day": {"Вторник": "15-20 (ауд. 231) лекция Python", "Среда":{"(1я подгруппа)": "13-40 (ауд. 230) лаба Python", "(2я подгруппа)": "10-10 (ауд. 235) лаба Python", "(3я подгруппа)": "12-00 (ауд. 235) лаба Python"} } }'
+jsonString='{ "Group": "MO-2", "TimeTable":{"Day":[ {"DayName":"Вторник", "time": "15-20","Cab": "(ауд. 231)", "Lesson": "лекция Python"}, {"DayName":"Среда", "Подгруппа": [{"Номер":"(1я подгруппа)", "time":"13-40", "Cab":"(ауд. 230)", "Lesson": "лаба Python"}, {"Номер":"(2я подгруппа)", "time":"10-10", "Cab":"(ауд. 235)", "Lesson": "лаба Python"}, {"Номер":"(3я подгруппа)","time":"12-00", "Cab": "(ауд. 235)", "Lesson":"лаба Python"} ]} ]} }'
 
 obj=json.loads(jsonString)
 
@@ -24,7 +24,7 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 def sending_auto2(message):
     
     if message.text=="/mo2":
-      bot.send_message(message.chat.id, 'Группа '+ obj["Group"] + ' \n \n'+'*Вторник*'+'\n'+ obj["Day"]["Вторник"] +'\n\n'+'*Среда*'+'\n'+obj['Day']['Среда']["(1я подгруппа)"] +' (1я подгруппа)\n'+ obj['Day']['Среда']["(2я подгруппа)"] +' (2я подгруппа)\n'+ obj['Day']['Среда']["(3я подгруппа)"] +' (3я подгруппа)\n', parse_mode="Markdown")
+      bot.send_message(message.chat.id, "Группа "+obj["Group"]+"\n\n"+"*"+obj['TimeTable']["Day"][0]["DayName"]+"*\n"+obj['TimeTable']["Day"][0]['time']+' '+obj['TimeTable']["Day"][0]['Cab']+' '+obj['TimeTable']["Day"][0]['Lesson']+'\n\n'+'*'+obj['TimeTable']["Day"][1]["DayName"]+'*\n'+obj['TimeTable']["Day"][1]["Подгруппа"][0]["time"]+ " " +obj['TimeTable']["Day"][1]["Подгруппа"][0]["Cab"]+ " " +obj['TimeTable']["Day"][1]["Подгруппа"][0]['Lesson']+' '+obj['TimeTable']["Day"][1]["Подгруппа"][0]["Номер"]+"\n"+obj['TimeTable']["Day"][1]["Подгруппа"][1]["time"]+ " " +obj['TimeTable']["Day"][1]["Подгруппа"][1]["Cab"]+" "+obj['TimeTable']["Day"][1]["Подгруппа"][1]['Lesson']+' '+obj['TimeTable']["Day"][1]["Подгруппа"][1]["Номер"]+"\n"+obj['TimeTable']["Day"][1]["Подгруппа"][2]["time"]+" "+obj['TimeTable']["Day"][1]["Подгруппа"][2]["Cab"]+" "+obj['TimeTable']["Day"][1]["Подгруппа"][2]['Lesson']+' '+obj['TimeTable']["Day"][1]["Подгруппа"][2]["Номер"]+'\n', parse_mode="Markdown")
     
     elif message.text=="/pm4":
       bot.send_message(message.chat.id, 'Группа ПМ-4 \n \n'+'*Пятница*'+'\n'+'10-10 (ауд. 210) лаба Python (1я подгруппа)\n12-00 (ауд. 118) лекция Python\n13-40 (ауд. 214) лаба Python (2я подгруппа)\n', parse_mode="Markdown")
