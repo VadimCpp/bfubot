@@ -27,7 +27,7 @@ def sending_auto2(message):
       bot.send_message(message.chat.id, "Группа "+obj["Group"]+"\n\n"+"*"+obj['TimeTable']["Day"][0]["DayName"]+"*\n"+obj['TimeTable']["Day"][0]['time']+' '+obj['TimeTable']["Day"][0]['Cab']+' '+obj['TimeTable']["Day"][0]['Lesson']+'\n\n'+'*'+obj['TimeTable']["Day"][1]["DayName"]+'*\n'+obj['TimeTable']["Day"][1]["Подгруппа"][0]["time"]+ " " +obj['TimeTable']["Day"][1]["Подгруппа"][0]["Cab"]+ " " +obj['TimeTable']["Day"][1]["Подгруппа"][0]['Lesson']+' '+obj['TimeTable']["Day"][1]["Подгруппа"][0]["Номер"]+"\n"+obj['TimeTable']["Day"][1]["Подгруппа"][1]["time"]+ " " +obj['TimeTable']["Day"][1]["Подгруппа"][1]["Cab"]+" "+obj['TimeTable']["Day"][1]["Подгруппа"][1]['Lesson']+' '+obj['TimeTable']["Day"][1]["Подгруппа"][1]["Номер"]+"\n"+obj['TimeTable']["Day"][1]["Подгруппа"][2]["time"]+" "+obj['TimeTable']["Day"][1]["Подгруппа"][2]["Cab"]+" "+obj['TimeTable']["Day"][1]["Подгруппа"][2]['Lesson']+' '+obj['TimeTable']["Day"][1]["Подгруппа"][2]["Номер"]+'\n', parse_mode="Markdown")
     
     elif message.text=="/pm4":
-      bot.send_message(message.chat.id, 'Группа ПМ-4 \n \n'+'*Пятница*'+'\n'+'10-10 (ауд. 210) лаба Python (1я подгруппа)\n12-00 (ауд. 118) лекция Python\n13-40 (ауд. 214) лаба Python (2я подгруппа)\n', parse_mode="Markdown")
+      bot.send_message(message.chat.id, 'Группа ПМ-4 \n \n'+'*Пятница*'+'\n'+'10-10 (ауд. 230. Вход через 230 ауд.) лаба Python (1я подгруппа)\n12-00 (ауд. 118) лекция Python\n13-40 (ауд. 214) лаба Python (2я подгруппа)\n', parse_mode="Markdown")
     
     elif message.chat.id > 0:
       bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',disable_web_page_preview=True)  # Отправляет авто сообщение
