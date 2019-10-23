@@ -73,7 +73,7 @@ def sending_auto2(message):
     # Не отправляем сообщения в общие чаты.
     # else:
     # bot.send_message(chat_id=message.chat.id, text='Это сообщение в чат', parse_mode='html',disable_web_page_preview=True)
-
+sending_auto2(message)
 
 if __name__ == '__main__':
     bot.polling()  # Заставляет бота получать уведомления о новых сообщениях
