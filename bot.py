@@ -13,6 +13,8 @@ logging.basicConfig(level=logging.DEBUG,
 
 bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект класса "TeleBot", то есть нашего бота
 
+def printSchedule(bot, message, groupNo):
+   bot.send_message(message.chat.id, "TODO")
 
 @bot.message_handler(
     content_types=['text', 'audio', 'document', 'photo', 'sticker', 'video', 'video_note', 'voice', 'location',
@@ -23,8 +25,7 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 
 @bot.message_handler(commands=['mo2'])
 
-def printSchedule(bot, message, groupNo):
-   bot.send_message(message.chat.id, "TODO")
+
     
 
 def sending_auto2(message):
