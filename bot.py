@@ -32,7 +32,6 @@ def printSchedule(bot, message, groupNo):
                          obj['TimeTable']["Day"][1]["Подгруппа"][2]['Lesson'] + ' ' +
                          obj['TimeTable']["Day"][1]["Подгруппа"][2]["Номер"] + '\n', parse_mode="Markdown")
 
-
     elif groupNo == "/pm4":
         bot.send_message(message.chat.id,
                          "Группа " + obj_pm4["Group"] + "\n\n" +
@@ -48,6 +47,7 @@ def printSchedule(bot, message, groupNo):
                          obj_pm4['TimeTable']["Day"][0]["Подгруппа"][2]["Cab"] + " " +
                          obj_pm4['TimeTable']["Day"][0]["Подгруппа"][2]['Lesson'] + " " +
                          obj_pm4['TimeTable']["Day"][0]["Подгруппа"][2]["Номер"] + '\n', parse_mode="Markdown")
+    
     elif message.chat.id > 0:
         bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',
                          disable_web_page_preview=True)  # Отправляет авто сообщение 
@@ -61,9 +61,6 @@ def printSchedule(bot, message, groupNo):
                    'pinned_message'])  # декоратор который заставляет пользователя реагировать на новые сообщения
 
 @bot.message_handler(commands=['mo2'])
-
-
-    
 
 def sending_auto2(message):
     
