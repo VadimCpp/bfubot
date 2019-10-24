@@ -15,7 +15,7 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 
 def printSchedule(bot, message, groupNo):
     
-    if groupNo == "/mo2"    
+    if groupNo == "/mo2":
         bot.send_message(message.chat.id, "Группа " + obj["Group"] + "\n\n" + "*" + obj['TimeTable']["Day"][0]["DayName"] + "*\n" +
                          obj['TimeTable']["Day"][0]['time'] + ' ' + obj['TimeTable']["Day"][0]['Cab'] + ' ' +
                          obj['TimeTable']["Day"][0]['Lesson'] + '\n\n' + '*' + obj['TimeTable']["Day"][1][
