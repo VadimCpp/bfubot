@@ -13,19 +13,10 @@ logging.basicConfig(level=logging.DEBUG,
 
 bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект класса "TeleBot", то есть нашего бота
 
-
-@bot.message_handler(
-    content_types=['text', 'audio', 'document', 'photo', 'sticker', 'video', 'video_note', 'voice', 'location',
-                   'contact', 'new_chat_members', 'left_chat_member', 'new_chat_title', 'new_chat_photo',
-                   'delete_chat_photo', 'group_chat_created', 'supergroup_chat_created', 'channel_chat_created',
-                   'migrate_to_chat_id', 'migrate_from_chat_id',
-                   'pinned_message'])  # декоратор который заставляет пользователя реагировать на новые сообщения
-
-@bot.message_handler(commands=['mo2'])
-def sending_auto2(message):
-    if message.text == "/mo2":
-        bot.send_message(message.chat.id,
-                         "Группа " + obj["Group"] + "\n\n" + "*" + obj['TimeTable']["Day"][0]["DayName"] + "*\n" +
+def printSchedule(bot, message, groupNo):
+    
+    if groupNo == "/mo2":
+        bot.send_message(message.chat.id, "Группа " + obj["Group"] + "\n\n" + "*" + obj['TimeTable']["Day"][0]["DayName"] + "*\n" +
                          obj['TimeTable']["Day"][0]['time'] + ' ' + obj['TimeTable']["Day"][0]['Cab'] + ' ' +
                          obj['TimeTable']["Day"][0]['Lesson'] + '\n\n' + '*' + obj['TimeTable']["Day"][1][
                              "DayName"] + '*\n' + obj['TimeTable']["Day"][1]["Подгруппа"][0]["time"] + " " +
@@ -41,8 +32,7 @@ def sending_auto2(message):
                          obj['TimeTable']["Day"][1]["Подгруппа"][2]['Lesson'] + ' ' +
                          obj['TimeTable']["Day"][1]["Подгруппа"][2]["Номер"] + '\n', parse_mode="Markdown")
 
-
-    elif message.text == "/pm4":
+    elif groupNo == "/pm4":
         bot.send_message(message.chat.id,
                          "Группа " + obj_pm4["Group"] + "\n\n" +
                          "*" + obj_pm4['TimeTable']["Day"][0]["DayName"] + "*\n"  +
@@ -57,16 +47,31 @@ def sending_auto2(message):
                          obj_pm4['TimeTable']["Day"][0]["Подгруппа"][2]["Cab"] + " " +
                          obj_pm4['TimeTable']["Day"][0]["Подгруппа"][2]['Lesson'] + " " +
                          obj_pm4['TimeTable']["Day"][0]["Подгруппа"][2]["Номер"] + '\n', parse_mode="Markdown")
-
+    
     elif message.chat.id > 0:
         bot.send_message(chat_id=message.chat.id, text=autosending_text(bot, message), parse_mode='html',
-                         disable_web_page_preview=True)  # Отправляет авто сообщение
+                         disable_web_page_preview=True)  # Отправляет авто сообщение 
 
+
+@bot.message_handler(
+    content_types=['text', 'audio', 'document', 'photo', 'sticker', 'video', 'video_note', 'voice', 'location',
+                   'contact', 'new_chat_members', 'left_chat_member', 'new_chat_title', 'new_chat_photo',
+                   'delete_chat_photo', 'group_chat_created', 'supergroup_chat_created', 'channel_chat_created',
+                   'migrate_to_chat_id', 'migrate_from_chat_id',
+                   'pinned_message'])  # декоратор который заставляет пользователя реагировать на новые сообщения
+
+@bot.message_handler(commands=['mo2'])
+
+def sending_auto2(message):
+    
+    printSchedule(bot, message, message.text)
+    
+    
     # NOTE
     # Не отправляем сообщения в общие чаты.
     # else:
     # bot.send_message(chat_id=message.chat.id, text='Это сообщение в чат', parse_mode='html',disable_web_page_preview=True)
-
+#sending_auto2(message)
 
 if __name__ == '__main__':
     bot.polling()  # Заставляет бота получать уведомления о новых сообщениях
