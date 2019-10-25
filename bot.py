@@ -19,18 +19,18 @@ def printSchedule(bot, message, groupNo):
         bot.send_message(message.chat.id, "Группа " + obj["Group"] + "\n\n" + "*" + obj['TimeTable']["Day"][0]["DayName"] + "*\n" +
                          obj['TimeTable']["Day"][0]['time'] + ' ' + obj['TimeTable']["Day"][0]['Cab'] + ' ' +
                          obj['TimeTable']["Day"][0]['Lesson'] + '\n\n' + '*' + obj['TimeTable']["Day"][1][
-                             "DayName"] + '*\n' + obj['TimeTable']["Day"][1]["Подгруппа"][0]["time"] + " " +
-                         obj['TimeTable']["Day"][1]["Подгруппа"][0]["Cab"] + " " +
-                         obj['TimeTable']["Day"][1]["Подгруппа"][0]['Lesson'] + ' ' +
-                         obj['TimeTable']["Day"][1]["Подгруппа"][0]["Номер"] + "\n" +
-                         obj['TimeTable']["Day"][1]["Подгруппа"][1]["time"] + " " +
+                             "DayName"] + '*\n' + obj['TimeTable']["Day"][1]["Подгруппа"][1]["time"] + " " +
                          obj['TimeTable']["Day"][1]["Подгруппа"][1]["Cab"] + " " +
                          obj['TimeTable']["Day"][1]["Подгруппа"][1]['Lesson'] + ' ' +
                          obj['TimeTable']["Day"][1]["Подгруппа"][1]["Номер"] + "\n" +
                          obj['TimeTable']["Day"][1]["Подгруппа"][2]["time"] + " " +
                          obj['TimeTable']["Day"][1]["Подгруппа"][2]["Cab"] + " " +
                          obj['TimeTable']["Day"][1]["Подгруппа"][2]['Lesson'] + ' ' +
-                         obj['TimeTable']["Day"][1]["Подгруппа"][2]["Номер"] + '\n', parse_mode="Markdown")
+                         obj['TimeTable']["Day"][1]["Подгруппа"][2]["Номер"] + "\n" +
+                         obj['TimeTable']["Day"][1]["Подгруппа"][0]["time"] + " " +
+                         obj['TimeTable']["Day"][1]["Подгруппа"][0]["Cab"] + " " +
+                         obj['TimeTable']["Day"][1]["Подгруппа"][0]['Lesson'] + ' ' +
+                         obj['TimeTable']["Day"][1]["Подгруппа"][0]["Номер"] + '\n', parse_mode="Markdown")
 
     elif groupNo == "/pm4":
         bot.send_message(message.chat.id,
