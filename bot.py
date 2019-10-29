@@ -6,7 +6,7 @@ from config import *
 jsonString = '{ "Group": "MO-2", "TimeTable":{"Day":[ {"DayName":"Вторник", "time": "15-20","Cab": "(ауд. 231)", "Lesson": "лекция Python"}, {"DayName":"Среда", "Подгруппа": [{"Номер":"(2я подгруппа)", "time":"10-10", "Cab":"(ауд. 235)",  "Lesson": "лаба Python"}, {"Номер":"(3я подгруппа)","time":"12-00", "Cab": "(ауд. 235)", "Lesson":"лаба Python"}, {"Номер":"(1я подгруппа)", "time":"13-40", "Cab":"(ауд. 230)", "Lesson": "лаба Python"} ]} ]} }'
 jsonString_pm4='{ "Group": "ПМ-4", "TimeTable":{"Day":[  {"DayName":"Пятница", "Подгруппа":[{"Номер":"(1я подгруппа)", "time":"10-10", "Cab":"(ауд. 230А. Вход через 230 ауд.)", "Lesson": "лаба Python"},{"time":"12-00", "Cab":"(ауд.118)", "Lesson": "лекция Python"},{"Номер":"(2я подгруппа)", "time":"13-40", "Cab":"(ауд. 214)", "Lesson": "лаба Python"} ]} ]} }'
 
-i=0
+
 obj = json.loads(jsonString)
 obj_pm4 =json.loads(jsonString_pm4)
 
@@ -20,12 +20,13 @@ def printSchedule(bot, message, groupNo):
     output = "Группа " + obj["Group"] + "\n\n" 
     
     if groupNo == "/mo2":
-        
+        i = 0
+        day = obj["TimeTable"]['Day'][i]
         for i in range(2):
             if i == 0:
-                output += "*" + obj['TimeTable']["Day"][i]["DayName"] + "*\n" + obj['TimeTable']["Day"][i]['time'] + ' ' + obj['TimeTable']["Day"][i]['Cab'] + ' ' + obj['TimeTable']["Day"][i]['Lesson'] + '\n\n'
+                output += "*" + day["DayName"] + "*\n" + day['time'] + ' ' + day['Cab'] + ' ' + day['Lesson'] + '\n\n'
             if i == 1:
-                output += '*' + obj['TimeTable']["Day"][i]["DayName"] + '*\n'
+                output += '*' + day["DayName"] + '*\n'
     
         i = 0
 
