@@ -19,10 +19,10 @@ def printSchedule(bot, message, groupNo):
     
     i = 0
     output = "Группа " + obj["Group"] + "\n\n" 
-    day = obj["TimeTable"]['Day'][i]
     
     if groupNo == "/mo2":
         
+        day = obj["TimeTable"]['Day'][i]
         for i in range(2):
             if i == 0:
                 output += "*" + day["DayName"] + "*\n" + day['time'] + ' ' + day['Cab'] + ' ' + day['Lesson'] + '\n\n'
