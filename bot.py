@@ -2,20 +2,27 @@ import telebot
 import logging
 import json
 from config import *
-from firebase import firebase
+#from firebase import firebase
 
-firebase = firebase.FirebaseApplication("https://bfutestin123.firebaseio.com", None)
-#jsonString = '{ "Group": "MO-2", "TimeTable":{"Day":[ {"DayName":"Вторник", "time": "15-20","Cab": "(ауд. 231)", "Lesson": "лекция Python"}, {"DayName":"Среда", "Подгруппа": [{"Номер":"(2я подгруппа)", "time":"10-10", "Cab":"(ауд. 235)",  "Lesson": "лаба Python"}, {"Номер":"(3я подгруппа)","time":"12-00", "Cab": "(ауд. 235)", "Lesson":"лаба Python"}, {"Номер":"(1я подгруппа)", "time":"13-40", "Cab":"(ауд. 230)", "Lesson": "лаба Python"} ]} ]} }'
+#firebase = firebase.FirebaseApplication("https://bfutestin123.firebaseio.com", None)
+jsonString = '{ "Group": "MO-2", "TimeTable":{"Day":[ {"DayName":"Вторник", "time": "15-20","Cab": "(ауд. 231)", "Lesson": "лекция Python"}, {"DayName":"Среда", "Подгруппа": [{"Номер":"(2я подгруппа)", "time":"10-10", "Cab":"(ауд. 235)",  "Lesson": "лаба Python"}, {"Номер":"(3я подгруппа)","time":"12-00", "Cab": "(ауд. 235)", "Lesson":"лаба Python"}, {"Номер":"(1я подгруппа)", "time":"13-40", "Cab":"(ауд. 230)", "Lesson": "лаба Python"} ]} ]} }'
 jsonString_pm4='{ "Group": "ПМ-4", "TimeTable":{"Day":[  {"DayName":"Пятница", "Подгруппа":[{"Номер":"(1я подгруппа)", "time":"10-10", "Cab":"(ауд. 230А. Вход через 230 ауд.)", "Lesson": "лаба Python"},{"time":"12-00", "Cab":"(ауд.118)", "Lesson": "лекция Python"},{"Номер":"(2я подгруппа)", "time":"13-40", "Cab":"(ауд. 214)", "Lesson": "лаба Python"} ]} ]} }'
-
+'''
 result = firebase.get('/bfutestin123/Schedule', '')
 result = str(result)
-result = '' + result[26:]
-index = int(len(result) - 2)
-result = result[:index] + ''
-
-jsonString = result
-
+count = 0
+j = 0
+i = 0
+while count < 3:
+    if result[i] == "'":
+        count += 1
+        j = i + 1
+    i += 1
+l = int(len(result) - 2)
+result = result[:l] + ''
+result = '' + result[j:]
+#jsonString = result
+'''
 obj = json.loads(jsonString)
 obj_pm4 =json.loads(jsonString_pm4)
 
