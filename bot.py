@@ -36,9 +36,10 @@ bot = telebot.TeleBot(Config.BOT_TOKEN)  # Создает объект клас�
 def printSchedule(bot, message, groupNo):
     
     output = "Группа " + obj["Group"] + "\n\n" 
-    i = 0
+    
     if groupNo == "/mo2":
         
+        i = 0    
         day = obj["TimeTable"]['Day'][i]
         for i in range(2):
             if i == 0:
