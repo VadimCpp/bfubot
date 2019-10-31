@@ -40,17 +40,17 @@ def printSchedule(bot, message, groupNo):
     if groupNo == "/mo2":
         
         i = 0    
-        day = obj["TimeTable"]['Day'][i]
+        day = obj["TimeTable"]['Day']
         for i in range(2):
             if i == 0:
-                output += "*" + day["DayName"] + "*\n" + day['time'] + ' ' + day['Cab'] + ' ' + day['Lesson'] + '\n\n'
+                output += "*" + day[i]["DayName"] + "*\n" + day[i]['time'] + ' ' + day[i]['Cab'] + ' ' + day[i]['Lesson'] + '\n\n'
             if i == 1:
-                output += '*' + day["DayName"] + '*\n'
+                output += '*' + day[i]["DayName"] + '*\n'
     
         i = 0
 
         for i in range(3):
-            output += obj['TimeTable']["Day"][1]["Подгруппа"][i]["time"] + " " + obj['TimeTable']["Day"][1]["Подгруппа"][i]["Cab"] + " " + obj['TimeTable']["Day"][1]["Подгруппа"][i]['Lesson'] + ' ' + obj['TimeTable']["Day"][1]["Подгруппа"][i]["Номер"] + "\n"
+            output += day[1]["Подгруппа"][i]["time"] + " " + day[1]["Подгруппа"][i]["Cab"] + " " + day[1]["Подгруппа"][i]['Lesson'] + ' ' + day[1]["Подгруппа"][i]["Номер"] + "\n"
 
         bot.send_message(message.chat.id, output, parse_mode="Markdown")
 
