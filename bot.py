@@ -4,13 +4,15 @@ import json
 from config import *
 from firebase import firebase
 
-firebase = firebase.FirebaseApplication("https://bfutestin123.firebaseio.com", None)
+# Login: bfubot123@gmail.com
+# Password: Firdu8-jantih-tanxon
+firebase = firebase.FirebaseApplication("https://bfubot.firebaseio.com/", None)
 # NOTE 
 # old jsonString
 #jsonString = '{ "Group": "MO-2", "TimeTable":{"Day":[ {"DayName":"Вторник", "time": "15-20","Cab": "(ауд. 231)", "Lesson": "лекция Python"}, {"DayName":"Среда", "Подгруппа": [{"Номер":"(2я подгруппа)", "time":"10-10", "Cab":"(ауд. 235)",  "Lesson": "лаба Python"}, {"Номер":"(3я подгруппа)","time":"12-00", "Cab": "(ауд. 235)", "Lesson":"лаба Python"}, {"Номер":"(1я подгруппа)", "time":"13-40", "Cab":"(ауд. 230)", "Lesson": "лаба Python"} ]} ]} }'
 jsonString_pm4='{ "Group": "ПМ-4", "TimeTable":{"Day":[  {"DayName":"Пятница", "Подгруппа":[{"Номер":"(1я подгруппа)", "time":"10-10", "Cab":"(ауд. 230А. Вход через 230 ауд.)", "Lesson": "лаба Python"},{"time":"12-00", "Cab":"(ауд.118)", "Lesson": "лекция Python"},{"Номер":"(2я подгруппа)", "time":"13-40", "Cab":"(ауд. 214)", "Lesson": "лаба Python"} ]} ]} }'
 
-result = firebase.get('/bfutestin123/Schedule', '')
+result = firebase.get('/bfubot/Schedule', '')
 result = str(result)
 count = 0
 j = 0
