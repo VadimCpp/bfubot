@@ -4,6 +4,7 @@ import json
 from config import *
 from firebase import firebase
 
+# FireBase Account:
 # Login: bfubot123@gmail.com
 # Password: Firdu8-jantih-tanxon
 firebase = firebase.FirebaseApplication("https://bfubot.firebaseio.com/", None)
