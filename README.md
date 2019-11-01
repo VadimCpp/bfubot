@@ -12,8 +12,8 @@ This is the starter template for other bots built with python
 
 Инструкция к FireBase:
 1) Заходим на сайт https://google.com
-2) Полностью выходим из вашего аккаунта, если он есть
-3) Входим в аккаунт разработки (Логин и пороль в файле bot.py)
+2) Входим в аккаунт разработки (Логин и пороль в файле bot.py)
+3) Делаем аккаунт разработки, аккаунтом по умолчанию
 4) Заходим на сайт https://console.firebase.google.com/u/0/project/bfubot/database/bfubot/data
 5) Работаем с датабазой.
 
