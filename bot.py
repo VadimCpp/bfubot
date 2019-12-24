@@ -5,7 +5,7 @@ from config import *
 from firebase import firebase
 
 import os
-
+from telegram.ext import Updater
 from flask import Flask, request
 
 MODE = Config.MODE
