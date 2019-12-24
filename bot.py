@@ -4,8 +4,8 @@ import json
 from config import *
 from firebase import firebase
 
-import os
-from telegram.ext import Updater
+# import os
+# from telegram.ext import Updater
 from flask import Flask, request
 
 MODE = Config.MODE
@@ -138,13 +138,13 @@ if __name__ == '__main__':
         bot.polling() # Заставляет бота получать уведомления о новых сообщениях
     else:
 		# Сервер необходим для работы webhook
-        # server = init_server()
-        # server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+        server = init_server()
+        server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 
-        updater = Updater(TOKEN)
-        # add handlers
-        updater.start_webhook(listen="0.0.0.0",
-                              port=int(os.environ.get('PORT', 5000)),
-                              url_path=TOKEN)
-        updater.bot.set_webhook(URL + TOKEN)
-        updater.idle()
+        # updater = Updater(TOKEN)
+        # # add handlers
+        # updater.start_webhook(listen="0.0.0.0",
+        #                       port=int(os.environ.get('PORT', 5000)),
+        #                       url_path=TOKEN)
+        # updater.bot.set_webhook(URL + TOKEN)
+        # updater.idle()
