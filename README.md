@@ -1,6 +1,6 @@
-# pyfirstbotbot
+# bfubot
 
-> Telegram bot: [https://t.me/pyfirstbotbot](https://t.me/pyfirstbotbot)
+> Telegram bot: https://t.me/pyfirstbotbot
 
 This is the starter template for other bots built with python
 
