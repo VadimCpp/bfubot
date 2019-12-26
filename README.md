@@ -1,23 +1,32 @@
 # bfubot
 
-> Telegram bot: [https://t.me/pyfirstbotbot](https://t.me/bfu)
+> Telegram bot: https://t.me/pyfirstbotbot
 
 This is the starter template for other bots built with python
 
-## Инструкция
+# Getting started
 
-Пошаговая инструкция находится:
-[frontend-basics.blogspot.com/2019/09/py-first-bot.html](https://frontend-basics.blogspot.com/2019/09/py-first-bot.html)
+Откройте терминал и перейдите в директорию с исходным кодом бота. Если вы ещё не скачивали исходники, сделать это и перейти в соответствующую директорию можно с помощью следующих команд:
+```
+git clone https://github.com/VadimCpp/bfubot.git
+cd bfubot
+```
 
+Для работы бота необходимы модули, указанные в файле `requirements.txt`. Для их установки используйте следующую команду:
+```
+pip install -r requirements.txt
+```
 
-Инструкция к FireBase:
-1) Заходим на сайт https://google.com
-2) Входим в аккаунт разработки (Логин и пороль в файле bot.py)
-3) Делаем аккаунт разработки, аккаунтом по умолчанию
-4) Заходим на сайт https://console.firebase.google.com/u/0/project/bfubot/database/bfubot/data
-5) Работаем с датабазой.
+В папке с исходниками необходимо создать текстовый файл `.env` со следующим содержанием:
+```
+BOT_TOKEN=YOUR_BOT_TOKEN
+MODE=debug
+```
+Вместо `YOUR_BOT_TOKEN` вставьте токен для бота.
 
-## Настройка IDE
+Запустите бота.
+```
+python bot.py
+```
 
-**TODO:**
-
+**Используйте VPN в случае проблем с доступом к telegram.org с вашего локального устройства.**
