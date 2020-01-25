@@ -105,3 +105,4 @@ venv.bak/
 
 # ide settings
 .idea
+.DS_Store
